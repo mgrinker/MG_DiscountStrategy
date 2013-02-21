@@ -7,20 +7,28 @@ package mg_discountstrategy;
  */
 public class QuantityVariableRateDiscount implements DiscountStrategy {
     private double discountRate = 0.1;
+    private int minQty;
 
     public QuantityVariableRateDiscount() {
     }
     
-    public QuantityVariableRateDiscount(double rate) {
+    public QuantityVariableRateDiscount(double rate, int minQty) {
         discountRate = rate;
+        this.minQty = minQty;
     }
 
     
     @Override
     public double getDiscountAmount(int qty, double unitCost) {
-        
+        if(qty >= minQty){
         return discountRate * qty * unitCost;
+        }
+        else {
+            return 0;
+        }
+        
     }
+        
 
     @Override
     public double getDiscountRate() {
