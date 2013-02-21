@@ -28,7 +28,6 @@ public class QuantityVariableRateDiscount implements DiscountStrategy {
         }
         
     }
-        
 
     @Override
     public double getDiscountRate() {
@@ -38,6 +37,14 @@ public class QuantityVariableRateDiscount implements DiscountStrategy {
     @Override
     public void setDiscountRate(double discountRate) {
         this.discountRate = discountRate;
+    }
+
+    public int getMinQty() {
+        return minQty;
+    }
+
+    public void setMinQty(int minQty) {
+        this.minQty = minQty;
     }
     
     public static void main(String[] args) {
