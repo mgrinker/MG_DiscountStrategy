@@ -9,13 +9,13 @@ public class Product {
     private String prodId;
     private String prodName;
     private double unitCost;
-    private VariableRateDiscount discount;
+    private DiscountStrategy discount;
 
     public Product() {
     }
 
     public Product(String prodId, String prodName, double unitCost, 
-            VariableRateDiscount discount) {
+            DiscountStrategy discount) {
         this.prodId = prodId;
         this.prodName = prodName;
         this.unitCost = unitCost;
@@ -42,10 +42,6 @@ public class Product {
         this.prodName = prodName;
     }
 
-
-
-
-
     public double getUnitCost() {
         return unitCost;
     }
@@ -54,17 +50,17 @@ public class Product {
         this.unitCost = unitCost;
     }
 
-    public VariableRateDiscount getDiscount() {
+    public DiscountStrategy getDiscount() {
         return discount;
     }
 
-    public void setDiscount(VariableRateDiscount discount) {
+    public void setDiscount(DiscountStrategy discount) {
         this.discount = discount;
     }
     
     public static void main(String[] args) {
-        Product product = new Product("A101", "Hat", 15.00, new VariableRateDiscount());
-        System.out.println("Discount Amount: " + product.getDiscountAmount(5));
+        Product product = new Product("A101", "Hat", 15.00, new QuantityVariableRateDiscount());
+        System.out.println("Discount Amount: " + product.getDiscountAmount(10));
         
     }
     

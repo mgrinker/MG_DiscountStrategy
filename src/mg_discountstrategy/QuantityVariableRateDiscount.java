@@ -7,7 +7,7 @@ package mg_discountstrategy;
  */
 public class QuantityVariableRateDiscount implements DiscountStrategy {
     private double discountRate = 0.1;
-    private int minQty;
+    private int minQty = 5;
 
     public QuantityVariableRateDiscount() {
     }
