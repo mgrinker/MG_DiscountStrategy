@@ -5,7 +5,7 @@ package mg_discountstrategy;
  *
  * @author mgrinker
  */
-public class VariableRateDiscount {
+public class VariableRateDiscount implements DiscountStrategy {
     private double discountRate = 0.1;
 
     public VariableRateDiscount() {
@@ -16,15 +16,18 @@ public class VariableRateDiscount {
     }
 
     
+    @Override
     public double getDiscountAmount(int qty, double unitCost) {
         
         return discountRate * qty * unitCost;
     }
 
+    @Override
     public double getDiscountRate() {
         return discountRate;
     }
 
+    @Override
     public void setDiscountRate(double discountRate) {
         this.discountRate = discountRate;
     }
