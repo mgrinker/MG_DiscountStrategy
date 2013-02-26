@@ -60,7 +60,7 @@ public class Product {
     
     public static void main(String[] args) {
         Product product = new Product("A101", "Hat", 15.00, new QuantityVariableRateDiscount());
-        System.out.println("Discount Amount: " + product.getDiscountAmount(10));
+        System.out.println("Discount Amount: " + product.getDiscountAmount(3));
         
     }
     

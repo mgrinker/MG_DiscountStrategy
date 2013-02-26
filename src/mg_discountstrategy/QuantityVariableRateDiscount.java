@@ -11,7 +11,11 @@ public class QuantityVariableRateDiscount implements DiscountStrategy {
 
     public QuantityVariableRateDiscount() {
     }
-    
+
+    public QuantityVariableRateDiscount(double rate) {
+        discountRate = rate;
+    }
+
     public QuantityVariableRateDiscount(double rate, int minQty) {
         discountRate = rate;
         this.minQty = minQty;
