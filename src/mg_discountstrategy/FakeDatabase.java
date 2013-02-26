@@ -6,6 +6,8 @@ package mg_discountstrategy;
  * @author Michael
  */
 public class FakeDatabase {
+    private String prodId;
+    
     private Customer[] customers = {
 	        new Customer("100", "John Smith"),
 	        new Customer("200", "Sally Jones"),
@@ -36,7 +38,7 @@ public class FakeDatabase {
         // Just call this method to find a product in the array by its id.
         // Returns null if not found.
 	    public final Product findProduct(final String prodId) {
-	        // validation is needed
+                // validation is needed
 	        Product product = null;
 	        for(Product p : products) {
 	            if(prodId.equals(p.getProdId())) {
@@ -44,7 +46,15 @@ public class FakeDatabase {
 	                break;
 	            }
 	        }
-
 	        return product;
 	    }
+
+    public String getProdId() {
+        return prodId;
+    }
+
+    public void setProdId(String prodId) {
+        this.prodId = prodId;
+    }
+            
 }

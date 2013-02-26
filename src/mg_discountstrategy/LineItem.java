@@ -7,32 +7,23 @@ package mg_discountstrategy;
  */
 public class LineItem {
     private Product product;
-    private Receipt receipt;
     private int qty;
+    private FakeDatabase db;
 
-    public LineItem() {
-    }
-
-    public LineItem(Product product, int qty) {
-        this.product = product;
+    public LineItem(String prodId, int qty) {
+         db = new FakeDatabase();
+        this.product = db.findProduct(prodId);
         this.qty = qty;
-    }
-    
-    
-    
-   public void addItemToSale(String prodId, int qty) {
-		FakeDatabase db =  new FakeDatabase();
-        Product product = db.findProduct(prodId);
-        
-		// if found, add the lineItem to the receipt
-		// but it's the receipt's job to do this!
-        if(product != null) {
-            receipt.addLineItem(product, qty);
-        }  
     }
    
    public double getOrigPriceSubtotal() {
        return product.getUnitCost() * qty;
    }
    
+   
+    public static void main(String[] args) {
+        LineItem item = new LineItem("C222", 5);
+        System.out.println("sub" + item.getOrigPriceSubtotal());
+        
+    }
 }

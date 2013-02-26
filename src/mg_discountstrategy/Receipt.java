@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package mg_discountstrategy;
 
 /**
@@ -9,10 +6,20 @@ package mg_discountstrategy;
  * @author Michael
  */
 public class Receipt {
+    private Customer customer;
+     private FakeDatabase db;   
     private LineItem[] lineItems;
+
+    public Receipt(String custId) {
+        db = new FakeDatabase();
+        customer = db.findCustomer(custId);
+        lineItems = new LineItem[0];
+    }
     
-    public void addLineItem(Product product, int qty) {
-        LineItem item = new LineItem(product, qty);
+    
+    
+    public void addLineItem(String prodId, int qty) {
+        LineItem item = new LineItem(prodId, qty);
         addToArray(item);
     }
     
