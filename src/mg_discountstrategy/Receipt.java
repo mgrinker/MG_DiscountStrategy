@@ -7,7 +7,7 @@ package mg_discountstrategy;
  */
 public class Receipt {
     private Customer customer;
-     private FakeDatabase db;   
+    private FakeDatabase db;   
     private LineItem[] lineItems;
 
     public Receipt(String custId) {
@@ -29,6 +29,16 @@ public class Receipt {
         tempItems[lineItems.length] = item;
         lineItems = tempItems;
     }
+    public LineItem[] getLineItems() {
+        for(LineItem item : lineItems) {
+            System.out.println(item.getProduct().getProdId());
+            System.out.println(item.getProduct().getProdName());
+            System.out.println(item.getProduct().getUnitCost());
+            System.out.println(item.getQty());
+            System.out.println(item.getProduct().getDiscountAmount(item.getQty()));
+        }
+        return lineItems;
+    }
     
     public double getTotalBeforeDiscount() {
         double grandTotal = 0.0;
@@ -38,4 +48,20 @@ public class Receipt {
         return grandTotal;
     }
     
+    public double getTotalDiscount() {
+        double totalDiscount = 0;
+        for(LineItem item : lineItems) {
+            totalDiscount += item.getProduct().getDiscountAmount(item.getQty());
+        }
+        return totalDiscount;
+    }
+    
+    public static void main(String[] args) {
+        Receipt r = new Receipt("100");
+        r.addLineItem("A101", 2);
+        r.addLineItem("B205", 5);
+        System.out.println(r.getLineItems());
+        System.out.println(r.getTotalDiscount());
+        System.out.println(r.getTotalBeforeDiscount());
+    }
 }
