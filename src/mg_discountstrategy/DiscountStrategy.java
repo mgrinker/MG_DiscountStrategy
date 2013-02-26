@@ -7,10 +7,10 @@ package mg_discountstrategy;
  */
 public interface DiscountStrategy {
 
-    double getDiscountAmount(int qty, double unitCost);
+    public abstract double getDiscountAmount(int qty, double unitCost);
 
-    double getDiscountRate();
+    public abstract double getDiscountRate();
 
-    void setDiscountRate(double discountRate);
+    public abstract void setDiscountRate(double discountRate);
     
 }
