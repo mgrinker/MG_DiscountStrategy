@@ -1,6 +1,6 @@
 
 package mg_discountstrategy;
-
+import java.text.DecimalFormat;
 /**
  *
  * @author Michael
@@ -23,6 +23,8 @@ public class Receipt {
         addToArray(item);
     }
     
+    // Create DecimalFormat object
+    DecimalFormat dollar = new DecimalFormat("#,##0.00");
     private void addToArray(LineItem item) {
         LineItem[] tempItems = new LineItem[lineItems.length + 1];
         System.arraycopy(lineItems, 0, tempItems, 0, lineItems.length);
@@ -37,7 +39,7 @@ public class Receipt {
             System.out.print(item.getProduct().getProdName() + "\t");
             System.out.print(item.getProduct().getUnitCost() + "\t");
             System.out.print(item.getQty() + "\t");
-            System.out.print(item.getProduct().getDiscountAmount(item.getQty()) + "\t");
+            System.out.print("$" + dollar.format(item.getProduct().getDiscountAmount(item.getQty())) + "\t");
             System.out.println(item.getOrigPriceSubtotal());
             System.out.println("");
             
