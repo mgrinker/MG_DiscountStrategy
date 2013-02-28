@@ -17,7 +17,7 @@ public class CashRegister {
     }
     
     public void finalizeSale() {
-        receipt.getLineItems();
+        receipt.outputReceipt();
     }
     
     
