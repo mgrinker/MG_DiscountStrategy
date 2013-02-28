@@ -30,9 +30,9 @@ public class Receipt {
         lineItems = tempItems;
     }
     public void getLineItems() {
+        System.out.println(customer.getCustId());
+        System.out.println(customer.getCustomerName());
         for(LineItem item : lineItems) {
-            System.out.println(customer.getCustId());
-            System.out.println(customer.getCustomerName());
             System.out.print(item.getProduct().getProdId() + "\t");
             System.out.print(item.getProduct().getProdName() + "\t");
             System.out.print(item.getProduct().getUnitCost() + "\t");
@@ -40,11 +40,11 @@ public class Receipt {
             System.out.print(item.getProduct().getDiscountAmount(item.getQty()) + "\t");
             System.out.println(item.getOrigPriceSubtotal());
             System.out.println("");
+            
+        }
             System.out.println(getTotalBeforeDiscount());
             System.out.println(getTotalDiscount());
             System.out.println(getFinalTotal());
-        }
-
     }
     
     public void outputReceipt() {
