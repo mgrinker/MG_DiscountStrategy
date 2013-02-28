@@ -43,6 +43,15 @@ public class Receipt {
 
     }
     
+    public void outputReceipt() {
+        String str;
+        for(LineItem item : lineItems) {
+            str = "";
+            
+        }
+        
+    }
+    
     public double getTotalBeforeDiscount() {
         double grandTotal = 0.0;
         for(LineItem item : lineItems) {
@@ -69,6 +78,8 @@ public class Receipt {
         Receipt r = new Receipt("100");
         r.addLineItem("A101", 2);
         r.addLineItem("B205", 5);
+        System.out.println(r.customer.getCustId());
+        System.out.println(r.customer.getCustomerName());
         r.getLineItems();
         System.out.println(r.getTotalBeforeDiscount());
         System.out.println(r.getTotalDiscount());
