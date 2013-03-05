@@ -6,7 +6,6 @@ package mg_discountstrategy;
  * @author Michael
  */
 public class FakeDatabase {
-    private String prodId;
     
     private Customer[] customers = {
 	        new Customer("100", "John Smith"),
@@ -47,14 +46,5 @@ public class FakeDatabase {
 	            }
 	        }
 	        return product;
-	    }
-
-    public String getProdId() {
-        return prodId;
-    }
-
-    public void setProdId(String prodId) {
-        this.prodId = prodId;
-    }
-            
+	    }       
 }

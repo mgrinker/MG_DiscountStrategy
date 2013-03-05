@@ -1,6 +1,8 @@
 
 package mg_discountstrategy;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 /**
  *
  * @author Michael
@@ -9,6 +11,7 @@ public class Receipt {
     private Customer customer;
     private FakeDatabase db;   
     private LineItem[] lineItems;
+    private Date receiptDate;
 
     public Receipt(String custId) {
         db = new FakeDatabase();
@@ -25,6 +28,13 @@ public class Receipt {
     
     // Create DecimalFormat object
     DecimalFormat dollar = new DecimalFormat("#,##0.00");
+    
+    public String getReceiptDate() {
+        receiptDate = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy hh:mm a");
+        return sdf.format(receiptDate);
+    }
+    
     private void addToArray(LineItem item) {
         LineItem[] tempItems = new LineItem[lineItems.length + 1];
         System.arraycopy(lineItems, 0, tempItems, 0, lineItems.length);
@@ -32,22 +42,24 @@ public class Receipt {
         lineItems = tempItems;
     }
     
-    public void outputReceipt() {
-        System.out.println(customer.getCustId());
-        System.out.println(customer.getCustomerName());
+    public final void outputReceipt() {
+        System.out.println("Customer ID: " + customer.getCustId());
+        System.out.println("Customer name: " + customer.getCustomerName());
+        System.out.println("Date: " + getReceiptDate());
         for(LineItem item : lineItems) {
             System.out.print(item.getProduct().getProdId() + "\t");
             System.out.print(item.getProduct().getProdName() + "\t");
-            System.out.print(item.getProduct().getUnitCost() + "\t");
+            System.out.print("$" + item.getProduct().getUnitCost() + "\t");
             System.out.print(item.getQty() + "\t");
-            System.out.print("$" + dollar.format(item.getProduct().getDiscountAmount(item.getQty())) + "\t");
+            System.out.print("$" + 
+                    dollar.format(item.getProduct()
+                    .getDiscountAmount(item.getQty())) + "\t");
             System.out.println("$" + dollar.format(item.getOrigPriceSubtotal()));
-            System.out.println("");
-            
+            System.out.println("");  
         }
-            System.out.println("$" + dollar.format(getTotalBeforeDiscount()));
-            System.out.println("$" + dollar.format(getTotalDiscount()));
-            System.out.println("$" + dollar.format(getFinalTotal()));
+            System.out.println("Subtotal $" + dollar.format(getTotalBeforeDiscount()));
+            System.out.println("You save $" + dollar.format(getTotalDiscount()));
+            System.out.println("Total Due $" + dollar.format(getFinalTotal()));
         
     }
     
