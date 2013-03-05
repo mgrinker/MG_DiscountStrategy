@@ -23,7 +23,7 @@ public class QuantityVariableRateDiscount implements DiscountStrategy {
 
     
     @Override
-    public double getDiscountAmount(int qty, double unitCost) {
+    public final double getDiscountAmount(final int qty, final double unitCost) {
         if(qty >= minQty){
         return discountRate * qty * unitCost;
         }
@@ -34,27 +34,27 @@ public class QuantityVariableRateDiscount implements DiscountStrategy {
     }
 
     @Override
-    public double getDiscountRate() {
+    public final double getDiscountRate() {
         return discountRate;
     }
 
     @Override
-    public void setDiscountRate(double discountRate) {
+    public final void setDiscountRate(double discountRate) {
         this.discountRate = discountRate;
     }
 
-    public int getMinQty() {
+    public final int getMinQty() {
         return minQty;
     }
 
-    public void setMinQty(int minQty) {
+    public final void setMinQty(final int minQty) {
         this.minQty = minQty;
     }
     
-    public static void main(String[] args) {
-        QuantityVariableRateDiscount vrd = new QuantityVariableRateDiscount();
-        double discount = vrd.getDiscountAmount(5, 10);
-        System.out.println("Discount Amount: " + discount);
-    }
+//    public static void main(String[] args) {
+//        QuantityVariableRateDiscount vrd = new QuantityVariableRateDiscount();
+//        double discount = vrd.getDiscountAmount(5, 10);
+//        System.out.println("Discount Amount: " + discount);
+//    }
 }
 

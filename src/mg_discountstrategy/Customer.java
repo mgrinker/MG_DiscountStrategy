@@ -17,19 +17,19 @@ public class Customer {
         this.customerName = customerName;
     }
 
-    public String getCustId() {
+    public final String getCustId() {
         return custId;
     }
 
-    public void setCustId(String custId) {
+    public final void setCustId(final String custId) {
         this.custId = custId;
     }
 
-    public String getCustomerName() {
+    public final String getCustomerName() {
         return customerName;
     }
 
-    public void setCustomerName(String customerName) {
+    public final void setCustomerName(final String customerName) {
         this.customerName = customerName;
     }  
 }

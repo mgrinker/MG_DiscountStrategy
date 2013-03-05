@@ -17,25 +17,25 @@ public class VariableRateDiscount implements DiscountStrategy {
 
     
     @Override
-    public double getDiscountAmount(int qty, double unitCost) {
+    public final double getDiscountAmount(int qty, double unitCost) {
         
         return discountRate * qty * unitCost;
     }
 
     @Override
-    public double getDiscountRate() {
+    public final double getDiscountRate() {
         return discountRate;
     }
 
     @Override
-    public void setDiscountRate(double discountRate) {
+    public final void setDiscountRate(double discountRate) {
         this.discountRate = discountRate;
     }
     
-    public static void main(String[] args) {
-        VariableRateDiscount vrd = new VariableRateDiscount();
-        double discount = vrd.getDiscountAmount(5, 10);
-        System.out.println("Discount Amount: " + discount);
-    }
+//    public static void main(String[] args) {
+//        VariableRateDiscount vrd = new VariableRateDiscount();
+//        double discount = vrd.getDiscountAmount(5, 10);
+//        System.out.println("Discount Amount: " + discount);
+//    }
 }
 

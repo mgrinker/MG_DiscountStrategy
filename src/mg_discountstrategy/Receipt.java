@@ -21,7 +21,7 @@ public class Receipt {
     
     
     
-    public void addLineItem(String prodId, int qty) {
+    public final void addLineItem(final String prodId, final int qty) {
         LineItem item = new LineItem(prodId, qty);
         addToArray(item);
     }
@@ -35,7 +35,7 @@ public class Receipt {
         return sdf.format(receiptDate);
     }
     
-    private void addToArray(LineItem item) {
+    private void addToArray(final LineItem item) {
         LineItem[] tempItems = new LineItem[lineItems.length + 1];
         System.arraycopy(lineItems, 0, tempItems, 0, lineItems.length);
         tempItems[lineItems.length] = item;
@@ -46,14 +46,19 @@ public class Receipt {
         System.out.println("Customer ID: " + customer.getCustId());
         System.out.println("Customer name: " + customer.getCustomerName());
         System.out.println("Date: " + getReceiptDate());
+        System.out.println("");
+        System.out.println("ID\t" + "Name\t\t\t" + "Cost\t" + "Qty\t" + "Discount\t"
+                + "Total");
+        System.out.println("---------------------------------------------------"
+                + "---------------------");
         for(LineItem item : lineItems) {
             System.out.print(item.getProduct().getProdId() + "\t");
-            System.out.print(item.getProduct().getProdName() + "\t");
+            System.out.print(item.getProduct().getProdName() + "\t\t");
             System.out.print("$" + item.getProduct().getUnitCost() + "\t");
             System.out.print(item.getQty() + "\t");
             System.out.print("$" + 
                     dollar.format(item.getProduct()
-                    .getDiscountAmount(item.getQty())) + "\t");
+                    .getDiscountAmount(item.getQty())) + "\t\t");
             System.out.println("$" + dollar.format(item.getOrigPriceSubtotal()));
             System.out.println("");  
         }
@@ -63,7 +68,7 @@ public class Receipt {
         
     }
     
-    public double getTotalBeforeDiscount() {
+    public final double getTotalBeforeDiscount() {
         double grandTotal = 0.0;
         for(LineItem item : lineItems) {
             grandTotal += item.getOrigPriceSubtotal();
@@ -71,7 +76,7 @@ public class Receipt {
         return grandTotal;
     }
     
-    public double getTotalDiscount() {
+    public final double getTotalDiscount() {
         double totalDiscount = 0;
         for(LineItem item : lineItems) {
             totalDiscount += item.getProduct().getDiscountAmount(item.getQty());
@@ -79,19 +84,19 @@ public class Receipt {
         return totalDiscount;
     }
     
-    public double getFinalTotal() {
+    public final double getFinalTotal() {
         double finalTotal = 0;
         finalTotal = getTotalBeforeDiscount() - getTotalDiscount();
         return finalTotal;
     }
     
-    public static void main(String[] args) {
-        Receipt r = new Receipt("100");
-        r.addLineItem("A101", 2);
-        r.addLineItem("B205", 5);
-        System.out.println(r.customer.getCustId());
-        System.out.println(r.customer.getCustomerName());
-        r.outputReceipt();
-        
-    }
+//    public static void main(String[] args) {
+//        Receipt r = new Receipt("100");
+//        r.addLineItem("A101", 2);
+//        r.addLineItem("B205", 5);
+//        System.out.println(r.customer.getCustId());
+//        System.out.println(r.customer.getCustomerName());
+//        r.outputReceipt();
+//        
+//    }
 }

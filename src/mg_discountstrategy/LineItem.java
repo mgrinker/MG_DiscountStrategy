@@ -16,30 +16,30 @@ public class LineItem {
         this.qty = qty;
     }
    
-   public double getOrigPriceSubtotal() {
+   public final double getOrigPriceSubtotal() {
        return product.getUnitCost() * qty;
    }
 
-    public Product getProduct() {
+    public final Product getProduct() {
         return product;
     }
 
-    public void setProduct(Product product) {
+    public final void setProduct(final Product product) {
         this.product = product;
     }
 
-    public int getQty() {
+    public final int getQty() {
         return qty;
     }
 
-    public void setQty(int qty) {
+    public final void setQty(final int qty) {
         this.qty = qty;
     }
    
   
-    public static void main(String[] args) {
-        LineItem item = new LineItem("B205", 2);
-        System.out.println("sub" + item.getOrigPriceSubtotal());     
-    }
+//    public static void main(String[] args) {
+//        LineItem item = new LineItem("B205", 2);
+//        System.out.println("sub" + item.getOrigPriceSubtotal());     
+//    }
     
 }

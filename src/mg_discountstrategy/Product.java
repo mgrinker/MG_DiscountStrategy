@@ -22,46 +22,46 @@ public class Product {
         this.discount = discount;
     }
     
-    public double getDiscountAmount(int qty) {
+    public final double getDiscountAmount(int qty) {
         return discount.getDiscountAmount(qty, unitCost);
     }
 
-    public String getProdId() {
+    public final String getProdId() {
         return prodId;
     }
 
-    public void setProdId(String prodId) {
+    public final void setProdId(final String prodId) {
         this.prodId = prodId;
     }
 
-    public String getProdName() {
+    public final String getProdName() {
         return prodName;
     }
 
-    public void setProdName(String prodName) {
+    public final void setProdName(final String prodName) {
         this.prodName = prodName;
     }
 
-    public double getUnitCost() {
+    public final double getUnitCost() {
         return unitCost;
     }
 
-    public void setUnitCost(double unitCost) {
+    public final void setUnitCost(final double unitCost) {
         this.unitCost = unitCost;
     }
 
-    public DiscountStrategy getDiscount() {
+    public final DiscountStrategy getDiscount() {
         return discount;
     }
 
-    public void setDiscount(DiscountStrategy discount) {
+    public final void setDiscount(final DiscountStrategy discount) {
         this.discount = discount;
     }
     
-    public static void main(String[] args) {
-        Product product = new Product("A101", "Hat", 15.00, new QuantityVariableRateDiscount());
-        System.out.println("Discount Amount: " + product.getDiscountAmount(3));
-        
-    }
+//    public static void main(String[] args) {
+//        Product product = new Product("A101", "Hat", 15.00, new QuantityVariableRateDiscount());
+//        System.out.println("Discount Amount: " + product.getDiscountAmount(3));
+//        
+//    }
     
 }
