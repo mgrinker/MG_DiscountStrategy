@@ -2,7 +2,8 @@
 package mg_discountstrategy;
 
 /**
- *
+ * This is the customer class where you can set and get the 
+ * custId an custName
  * @author Michael
  */
 public class Customer {
@@ -22,6 +23,7 @@ public class Customer {
     }
 
     public final void setCustId(final String custId) {
+        // validation needed
         this.custId = custId;
     }
 

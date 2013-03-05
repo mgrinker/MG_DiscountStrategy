@@ -2,7 +2,9 @@
 package mg_discountstrategy;
 
 /**
- *
+ * This lineItem class get passed the prodId and qty.  It looks up the product
+ * in the fake database.  It also calculates the total cost of an item
+ * before discount
  * @author Michael
  */
 public class LineItem {
@@ -25,6 +27,7 @@ public class LineItem {
     }
 
     public final void setProduct(final Product product) {
+        //validation needed
         this.product = product;
     }
 

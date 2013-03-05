@@ -2,7 +2,8 @@
 package mg_discountstrategy;
 
 /**
- *
+ * This class applies a minimum discount to the product if used.
+ * There is a minimum qty needed for the discount to apply
  * @author mgrinker
  */
 public class QuantityVariableRateDiscount implements DiscountStrategy {
@@ -24,6 +25,7 @@ public class QuantityVariableRateDiscount implements DiscountStrategy {
     
     @Override
     public final double getDiscountAmount(final int qty, final double unitCost) {
+        // validation needed
         if(qty >= minQty){
         return discountRate * qty * unitCost;
         }
@@ -40,6 +42,7 @@ public class QuantityVariableRateDiscount implements DiscountStrategy {
 
     @Override
     public final void setDiscountRate(double discountRate) {
+        // validation needded
         this.discountRate = discountRate;
     }
 
@@ -48,6 +51,7 @@ public class QuantityVariableRateDiscount implements DiscountStrategy {
     }
 
     public final void setMinQty(final int minQty) {
+        // validation needed
         this.minQty = minQty;
     }
     

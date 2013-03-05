@@ -4,7 +4,11 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 /**
- *
+ * The receipt class is responsible for all things related to a receipt.
+ * It looks up the customer to start a new receipt.
+ * It stores the line items in an array.
+ * It does the final calculations for the receipt.
+ * It outputs the receipt.
  * @author Michael
  */
 public class Receipt {

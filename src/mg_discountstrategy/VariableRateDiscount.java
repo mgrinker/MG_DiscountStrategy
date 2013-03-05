@@ -2,7 +2,7 @@
 package mg_discountstrategy;
 
 /**
- *
+ * This class applies a variable rate discount to the product if used
  * @author mgrinker
  */
 public class VariableRateDiscount implements DiscountStrategy {
@@ -18,7 +18,7 @@ public class VariableRateDiscount implements DiscountStrategy {
     
     @Override
     public final double getDiscountAmount(int qty, double unitCost) {
-        
+        // validation needed
         return discountRate * qty * unitCost;
     }
 
@@ -29,6 +29,7 @@ public class VariableRateDiscount implements DiscountStrategy {
 
     @Override
     public final void setDiscountRate(double discountRate) {
+        //validation needed
         this.discountRate = discountRate;
     }
     

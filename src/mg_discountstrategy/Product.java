@@ -2,7 +2,9 @@
 package mg_discountstrategy;
 
 /**
- *
+ * This is the product class where you can get and set the information
+ * about a product.  You can also set a discount rate for a product
+ * through the discount strategy
  * @author mgrinker
  */
 public class Product {
@@ -31,6 +33,7 @@ public class Product {
     }
 
     public final void setProdId(final String prodId) {
+        //validation needed
         this.prodId = prodId;
     }
 
@@ -39,6 +42,7 @@ public class Product {
     }
 
     public final void setProdName(final String prodName) {
+        // validation needed
         this.prodName = prodName;
     }
 
@@ -47,6 +51,7 @@ public class Product {
     }
 
     public final void setUnitCost(final double unitCost) {
+        // validation needed
         this.unitCost = unitCost;
     }
 
@@ -55,6 +60,7 @@ public class Product {
     }
 
     public final void setDiscount(final DiscountStrategy discount) {
+        //validation needed
         this.discount = discount;
     }
     

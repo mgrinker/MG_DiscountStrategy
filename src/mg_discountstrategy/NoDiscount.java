@@ -2,7 +2,7 @@
 package mg_discountstrategy;
 
 /**
- *
+ * This class applies a 0 discount to the product
  * @author Michael
  */
 public class NoDiscount implements DiscountStrategy {

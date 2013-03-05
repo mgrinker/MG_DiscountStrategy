@@ -2,7 +2,7 @@
 package mg_discountstrategy;
 
 /**
- *
+ * A fake database created by the instructor to be used with the program
  * @author Michael
  */
 public class FakeDatabase {
